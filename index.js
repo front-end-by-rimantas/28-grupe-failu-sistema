@@ -1,15 +1,16 @@
-const { log } = require('console');
 const _data = require('./lib/data');
+const helpers = require('./lib/helpers');
 
-// _data.read('users', 'petras', (err, data) => {
-//     if (err || !data) {
-//         console.log('Nepavyko perskaityti failo...');
-//         return false;
-//     }
+_data.read('users', 'petras', (err, data) => {
+    if (err || !data) {
+        console.log('Nepavyko perskaityti failo...');
+        return false;
+    }
 
-//     const obj = JSON.parse(data);
-//     console.log(obj);
-// })
+    console.log(data);
+    const obj = helpers.parseJsonToObject(data);
+    console.log(obj);
+})
 
 
 // const pazymiai = [10, 2, 8, 4, 6];
@@ -27,7 +28,7 @@ const _data = require('./lib/data');
 //             return false;
 //         }
 
-//         const obj = JSON.parse(data);
+//         const obj = helpers.parseJsonToObject(data);
 //         console.log(obj);
 //     })
 // });
@@ -52,16 +53,16 @@ const _data = require('./lib/data');
 //             return false;
 //         }
 
-//         const obj = JSON.parse(data);
+//         const obj = helpers.parseJsonToObject(data);
 //         console.log(obj);
 //     })
 // });
 
-_data.delete('users', 'maryte', (err) => {
-    if (err) {
-        console.log(err);
-        return false;
-    }
+// _data.delete('users', 'maryte', (err) => {
+//     if (err) {
+//         console.log(err);
+//         return false;
+//     }
 
-    console.log('Failas sekmingai istrintas.');
-})
+//     console.log('Failas sekmingai istrintas.');
+// })
